@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule a Consultation - Renew Chain Relief Collective - Go-To-Market Partnership Program</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            background: #0a0a0a;
+            color: #e0e0e0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header Styles */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 40px;
+            height: 80px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 1.8rem;
+            font-weight: 700;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, #ff6b35, #f7931e, #9b59b6, #3498db, #1abc9c);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+        }
+
+        .logo-icon::after {
+            content: '';
+            width: 16px;
+            height: 16px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 4px;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .nav-link {
+            color: #b0b0b0;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: #ffffff;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #ff6b35, #f7931e, #9b59b6);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
+        }
+
+        .consultation-button {
+            background: linear-gradient(135deg, #9b59b6, #8e44ad, #7d3c98);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(155, 89, 182, 0.2);
+            margin-left: 12px;
+        }
+
+        .consultation-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(155, 89, 182, 0.4);
+        }
+
+        /* Main Content Styles */
+        .main-content {
+            padding-top: 120px;
+            padding-bottom: 80px;
+            min-height: 100vh;
+        }
+
+        .consultation-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .consultation-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .consultation-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #ff6b35, #f7931e, #9b59b6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .consultation-subtitle {
+            font-size: 1.3rem;
+            color: #b0b0b0;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .consultation-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        .consultation-info {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 40px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .consultation-info h3 {
+            color: #ffffff;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .consultation-info p {
+            color: #b0b0b0;
+            margin-bottom: 20px;
+        }
+
+        .consultation-info ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .consultation-info li {
+            color: #b0b0b0;
+            margin-bottom: 12px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .consultation-info li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #9b59b6;
+            font-weight: bold;
+        }
+
+        .consultation-contact {
+            background: rgba(155, 89, 182, 0.1);
+            padding: 40px;
+            border-radius: 16px;
+            border-left: 4px solid #9b59b6;
+            border: 1px solid rgba(155, 89, 182, 0.2);
+        }
+
+        .consultation-contact h4 {
+            color: #9b59b6;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        .consultation-contact p {
+            color: #b0b0b0;
+            margin-bottom: 20px;
+        }
+
+        .contact-methods {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .contact-method {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .contact-icon {
+            font-size: 1.5rem;
+        }
+
+        .contact-details strong {
+            color: #ffffff;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .consultation-options {
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .option-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .option-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateY(-5px);
+        }
+
+        .option-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .option-card h4 {
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+
+        .option-card p {
+            color: #b0b0b0;
+            font-size: 0.9rem;
+        }
+
+        /* Footer Styles */
+        .footer {
+            background: #0a0a0a;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand {
+            max-width: 400px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .footer-logo .logo {
+            color: #ffffff;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .footer-description {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .footer-section-title {
+            color: #ffffff;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #666;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .footer-links a:hover {
+            color: #ffffff;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                padding: 0 20px;
+            }
+
+            .nav {
+                display: none;
+            }
+
+            .consultation-container {
+                padding: 0 20px;
+            }
+
+            .consultation-title {
+                font-size: 2.5rem;
+            }
+
+            .consultation-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .consultation-info,
+            .consultation-contact {
+                padding: 30px;
+            }
+
+            .options-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <!-- ...existing code... -->
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <a href="index.html" class="logo">
+                <div class="logo-icon"></div>
+                Renew³
+            </a>
+            <nav class="nav">
+                <a class="nav-link" href="index.html#about">About</a>
+                <a class="nav-link" href="index.html#services">Services</a>
+                <a class="nav-link" href="index.html" onclick="openModal('contact-modal')">Contact</a>
+                <a class="nav-link" href="index.html" onclick="openModal('donate-modal')">Donate</a>
+                <button class="cta-button" onclick="window.location.href='index.html'; setTimeout(() => openModal('volunteer-modal'), 100)">Get Involved</button>
+                <button class="consultation-button active" onclick="window.location.href='consultation.html'">Schedule Consultation</button>
+            </nav>
+        </div>
+    </header>
+<!-- ...existing code... -->
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="consultation-container">
+            <!-- Header Section -->
+            <div class="consultation-header">
+                <h1 class="consultation-title">Launch Your Product with Purpose</h1>
+                <p class="consultation-subtitle">
+                    Partner with the Renew Chain Relief Collective to bring your product to market through strategic consulting. Our donation-based partnership model creates mutually beneficial relationships that support both your business growth and our collective mission of positive impact.
+                </p>
+            </div>
+
+            <!-- Content Grid -->
+            <div class="consultation-content">
+                <!-- Consultation Information -->
+                <div class="consultation-info">
+                    <h3>What Our Consultation Includes:</h3>
+                    <ul>
+                        <li>Market analysis and competitive positioning strategy</li>
+                        <li>Go-to-market roadmap and launch timeline development</li>
+                        <li>Brand identity, messaging, and value proposition refinement</li>
+                        <li>Digital marketing strategy and customer acquisition planning</li>
+                        <li>Partnership development and strategic alliance building</li>
+                        <li>Technology stack consultation and scalability planning</li>
+                        <li>Pitch deck development and investor presentation coaching</li>
+                        <li>Donation partnership structure and mutual benefit planning</li>
+                    </ul>
+                    
+                    <p><strong>Free Initial Consultation Available</strong></p>
+                    <p>Our business strategists and product launch experts understand the entrepreneurial journey. Through our donation-based partnership model, we provide expert guidance without equity dilution, creating sustainable relationships where your success supports our collective mission of positive impact.</p>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="consultation-contact">
+                    <h4>Ready to Launch Your Vision?</h4>
+                    <p>Contact us today to schedule your consultation. We're here to support you every step of the way.</p>
+                    
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <span class="contact-icon">📞</span>
+                            <div class="contact-details">
+                                <strong>Call: +1-727-554-1206</strong>
+                                Business Hours: Monday-Friday 7AM-4PM EST
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <span class="contact-icon">📧</span>
+                            <div class="contact-details">
+                                <strong>Email: partnerships@renewchainrelief.org</strong>
+                                Response within 24 hours during business days
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <span class="contact-icon">🌐</span>
+                            <div class="contact-details">
+                                <strong><a href="partner-portal-coming-soon/partner_portal.html" target="_blank" style="color: inherit; text-decoration: none;">Online: Partner Portal</a></strong>
+                                <p>Access our secure partnership platform for scheduling and resources</p>
+                            </div>
+                        </div>
+                
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Consultation Options -->
+            <div class="consultation-options">
+                <h3 style="color: #ffffff; font-size: 2rem; margin-bottom: 20px;">Consultation Options:</h3>
+                <div class="options-grid">
+                    <div class="option-card">
+                        <span class="option-icon">�</span>
+                        <h4>Strategy Call</h4>
+                        <p>45-60 minute deep-dive into your business model, target market, and launch readiness</p>
+                    </div>
+                    
+                    <div class="option-card">
+                        <span class="option-icon">�</span>
+                        <h4>GTM Workshop</h4>
+                        <p>Interactive planning session to map your complete go-to-market strategy and timeline</p>
+                    </div>
+                    
+                    <div class="option-card">
+                        <span class="option-icon">🤝</span>
+                        <h4>Partnership Planning</h4>
+                        <p>Explore the donation-based partnership model and how we can support each other's growth</p>
+                    </div>
+                    
+                    <div class="option-card">
+                        <span class="option-icon">�</span>
+                        <h4>Launch Support Package</h4>
+                        <p>Comprehensive resource bundle including marketing templates, launch checklists, and ongoing advisory</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Partnership Benefits Section -->
+            <div class="partnership-benefits" style="margin-top: 60px; text-align: center;">
+                <h3 style="color: #ffffff; font-size: 2.5rem; margin-bottom: 30px;">The Win-Win Partnership Model</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; margin-bottom: 40px;">
+                    <div style="background: rgba(155, 89, 182, 0.1); padding: 30px; border-radius: 12px; border: 1px solid rgba(155, 89, 182, 0.2);">
+                        <h4 style="color: #9b59b6; font-size: 1.5rem; margin-bottom: 15px;">For Entrepreneurs</h4>
+                        <ul style="text-align: left; color: #b0b0b0; list-style: none; padding: 0;">
+                            <li style="margin-bottom: 10px; padding-left: 20px; position: relative;"><span style="position: absolute; left: 0; color: #9b59b6;">✓</span> Expert guidance without equity dilution</li>
+                            <li style="margin-bottom: 10px; padding-left: 20px; position: relative;"><span style="position: absolute; left: 0; color: #9b59b6;">✓</span> Access to strategic resources and networks</li>
+                            <li style="margin-bottom: 10px; padding-left: 20px; position: relative;"><span style="position: absolute; left: 0; color: #9b59b6;">✓</span> Credibility through collective association</li>
+                            <li style="margin-bottom: 10px; padding-left: 20px; position: relative;"><span style="position: absolute; left: 0; color: #9b59b6;">✓</span> Purpose-driven business development</li>
+                        </ul>
+                    </div>
+                    <div style="background: rgba(52, 152, 219, 0.1); padding: 30px; border-radius: 12px; border: 1px solid rgba(52, 152, 219, 0.2);">
+                        <h4 style="color: #3498db; font-size: 1.5rem; margin-bottom: 15px;">For the Collective</h4>
+                        <ul style="text-align: left; color: #b0b0b0; list-style: none; padding: 0;">
+                            <li style="margin-bottom: 10px; padding-left: 20px; position: relative;"><span style="position: absolute; left: 0; color: #3498db;">✓</span> Sustainable funding through donations</li>
+                            <li style="margin-bottom: 10px; padding-left: 20px; position: relative;"><span style="position: absolute; left: 0; color: #3498db;">✓</span> Expanded partner network and reach</li>
+                            <li style="margin-bottom: 10px; padding-left: 20px; position: relative;"><span style="position: absolute; left: 0; color: #3498db;">✓</span> Increased impact capacity and resources</li>
+                            <li style="margin-bottom: 10px; padding-left: 20px; position: relative;"><span style="position: absolute; left: 0; color: #3498db;">✓</span> Innovation through entrepreneurial partnerships</li>
+                        </ul>
+                    </div>
+                </div>
+                <p style="color: #b0b0b0; font-size: 1.1rem; max-width: 800px; margin: 0 auto;">
+                    Our donation-based partnership model creates aligned incentives where your business success directly supports our collective mission of positive impact, fostering sustainable relationships built on mutual benefit and shared purpose.
+                </p>
+            </div>
+
+            <!-- Ideal Client Profile Section -->
+            <div class="ideal-client-profile" style="margin-top: 60px; text-align: center;">
+                <h3 style="color: #ffffff; font-size: 2.5rem; margin-bottom: 30px;">Who Benefits Most</h3>
+                <div class="options-grid" style="margin-top: 30px;">
+                    <div class="option-card">
+                        <span class="option-icon">👨‍💻</span>
+                        <h4>Early-Stage Developers</h4>
+                        <p>Software developers with MVP ready for market entry seeking strategic guidance and launch support</p>
+                    </div>
+                    
+                    <div class="option-card">
+                        <span class="option-icon">🏢</span>
+                        <h4>Business Owners</h4>
+                        <p>Entrepreneurs launching innovative products or services who want expert consultation without equity sacrifice</p>
+                    </div>
+                    
+                    <div class="option-card">
+                        <span class="option-icon">🌱</span>
+                        <h4>Social Entrepreneurs</h4>
+                        <p>Purpose-driven founders seeking partnerships that align business growth with positive social impact</p>
+                    </div>
+                    
+                    <div class="option-card">
+                        <span class="option-icon">🚀</span>
+                        <h4>Tech Founders</h4>
+                        <p>Technology entrepreneurs looking for strategic guidance, network access, and launch acceleration</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Success Stories Callout -->
+            <div class="success-stories" style="margin-top: 60px; text-align: center; background: rgba(255, 255, 255, 0.05); padding: 40px; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.1);">
+                <h3 style="color: #ffffff; font-size: 1.5rem; margin-bottom: 20px;">Believing For Success Stories</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin-bottom: 30px;">
+                    <div style="text-align: center;">
+                        <div style="font-size: 2.5rem; color: #9b59b6; margin-bottom: 10px;">5+</div>
+                        <p style="color: #b0b0b0; margin: 0;">Products Launched</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 2.5rem; color: #3498db; margin-bottom: 10px;">$500K+</div>
+                        <p style="color: #b0b0b0; margin: 0;">Funding Raised</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 2.5rem; color: #ff6b35; margin-bottom: 10px;">5+</div>
+                        <p style="color: #b0b0b0; margin: 0;">Active Partners</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 2.5rem; color: #f7931e; margin-bottom: 10px;">95%</div>
+                        <p style="color: #b0b0b0; margin: 0;">Success Rate</p>
+                    </div>
+                </div>
+                <p style="color: #b0b0b0; font-style: italic;">
+                    "Join the growing community of entrepreneurs who have transformed their ideas into successful businesses through our partnership program."
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <div class="logo-icon"></div>
+                        <span class="logo">Renew³</span>
+                    </div>
+                    <p class="footer-description">
+                        A 501(c)(3) nonprofit organization dedicated to rapid disaster relief 
+                        and home restoration services through innovative technology and 
+                        community partnerships.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="footer-section-title">Get Involved</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html" onclick="setTimeout(() => openModal('contractor-modal'), 100)">Join as Contractor</a></li>
+                        <li><a href="index.html" onclick="setTimeout(() => openModal('community-modal'), 100)">Join as Community</a></li>
+                        <li><a href="index.html" onclick="setTimeout(() => openModal('volunteer-modal'), 100)">Volunteer</a></li>
+                        <li><a href="index.html" onclick="setTimeout(() => openModal('donate-modal'), 100)">Donate</a></li>
+                        <li><a href="index.html" onclick="setTimeout(() => openModal('partner-modal'), 100)">Corporate Partnership</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="footer-section-title">Organization</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html#about">About Us</a></li>
+                        <li><a href="index.html" onclick="setTimeout(() => openModal('contact-modal'), 100)">Contact</a></li>
+                        <li><a href="index.html" onclick="setTimeout(() => openModal('transparency-modal'), 100)">Financial Transparency</a></li>
+                        <li><a href="index.html" onclick="setTimeout(() => openModal('privacy-modal'), 100)">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <span>&copy; 2025 Renew³. All rights reserved. 501(c)(3) Tax-Exempt Organization</span>
+                <span>EIN: [To be assigned] • <a href="index.html" onclick="setTimeout(() => openModal('privacy-modal'), 100)" style="color: #666; cursor: pointer;">Privacy Policy</a></span>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
